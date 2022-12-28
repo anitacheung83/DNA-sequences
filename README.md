@@ -1,6 +1,6 @@
 # DNA-sequences
 
-Introduction
+## Introduction
 In this assignment you will use some of your newfound C skills including functions, loops and arrays on problems involving DNA sequences. DNA sequences can be represented as simple character arrays that contain only the characters A, C, G or T, so programs that work with DNA are often written in C. You won't need to know any biology to complete this assignment.
 
 In this assignment you will be presented with some problems in your (pretend) job as a software developer at the fictional AGTCorp, the world's leading company for synthesizing DNA molecules. AGTCorp is developing their latest DNA synthesis machine, called SEQbot, and you've joined the project to help the team prepare for the launch.
@@ -9,14 +9,17 @@ Note that for this assignment you are working with arrays of characters, not str
 
 It is important that your programs produce only the output specified in the handout, and exactly in the format specified.  You must not have any additional output.
 
-Task 1 - Melting DNA
+## Task 1 - Melting DNA
 DNA is a double-stranded molecule where each character on one strand binds to a complementary character on the other strand - A binds to T, C binds to G and vice-versa. These bonds can be broken to split a double-stranded molecule into two single strands by increasing temperature to melt the DNA. The melting temperature for a particular sequence of DNA is given by the formula:
 
+'''
 T = (n_A + n_T) * 2 + (n_C + n_G) * 4
+'''
 where n_A, n_C, n_G and n_T are the number of A,C,G and T characters in the DNA sequence. Your task is to write a function to calculate the melting temperature of a given DNA sequence. Your function must have the following signature:
-
+'''
 int calculate_melting_temperature(char *sequence, int sequence_length)
-Task 2 - Building DNA
+'''
+## Task 2 - Building DNA
 SEQbot is controlled by a simple text file that it reads from disk. The file contains a sequence of instructions that describes how SEQbot should create the DNA molecule. The commands that SEQbot accepts are START, END, SET_TEMPERATURE <t> and WRITE <char> <n>:
 
 START tells SEQbot to begin creating a new DNA molecule
@@ -40,7 +43,7 @@ SET_TEMPERATURE 28
 END
 This is a valid sequence of instructions as each WRITE command has a different character than the preceding WRITE. If the first WRITE A 2 instruction was replaced by two WRITE A 1 instructions the instruction sequence would not be valid as it would jam SEQbot.
 
-Task 3 - Testing SEQbot
+## Task 3 - Testing SEQbot
 After implementing print_instructions you want to test whether SEQbot is functioning correctly. To do this, you will write a function to create all possible sequences of A, C, G, T for a given length, k. For example, given k=3, your program should generate the sequences AAA, AAC, AAG, ..., TTG, TTT. The function will print each sequence to standard output in the format <length> <sequence> 0 There is one space between each of these fields. A user can then redirect the output of generate_all_molecules to a file to be read as input to generate_molecules_from_file as in Task 4.
 
 Your function should have the signature:
@@ -100,8 +103,9 @@ You can get the starter code from MarkUs either by downloading it to your machin
 The starter code contains three files, seqbot_helpers.h, seqbot_helpers.c and seqbot_main.c. The only file you will modify is seqbot_helper.c where you will complete the functions as described above. We have provided the function signatures for you. seqbot_helpers.h contains these function signatures and should not be modified. seqbot_main.c contains a main function that can be used to test your program.
 
 Use the following compile line to compile your program:
-
+'''
 gcc -Wall -g -o seqbot seqbot_main.c seqbot_helpers.c
+'''
 Or you can use the provided a Makefile to compile seqbot.
 
 See the usage message in main to learn how to run the sebot for testing. You are welcome to write (and commit) other test programs if you want to test cases that may not be as easy to test with the provided program.
